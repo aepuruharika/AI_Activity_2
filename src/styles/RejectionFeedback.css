@@ -1,0 +1,57 @@
+.rejection-feedback {
+  border-left-color: var(--danger-color);
+  background: #fef2f2;
+}
+
+.rejection-section,
+.suggestions-section {
+  margin-bottom: 20px;
+}
+
+.rejection-section h4,
+.suggestions-section h4 {
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.rejection-section h4 {
+  color: var(--danger-color);
+}
+
+.suggestions-section h4 {
+  color: var(--warning-color);
+}
+
+.reasons-list,
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.reason-item,
+.suggestion-item {
+  background: white;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border-left: 3px solid var(--danger-color);
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.suggestion-item {
+  border-left-color: var(--warning-color);
+}
+
+.reason-item::before,
+.suggestion-item::before {
+  content: '• ';
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .reason-item,
+  .suggestion-item {
+    padding: 10px;
+  }
+}

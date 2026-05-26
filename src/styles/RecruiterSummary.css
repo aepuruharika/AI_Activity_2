@@ -1,0 +1,138 @@
+.recruiter-summary {
+  border-left-color: var(--success-color);
+  background: #f0fdf4;
+}
+
+.summary-box,
+.highlights-box,
+.recommendation-box,
+.complexity-box,
+.next-steps-box,
+.salary-box {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 3px solid var(--success-color);
+}
+
+.highlights-box {
+  border-left-color: var(--primary-color);
+}
+
+.recommendation-box {
+  border-left-color: var(--warning-color);
+}
+
+.complexity-box {
+  border-left-color: var(--primary-color);
+}
+
+.next-steps-box {
+  border-left-color: var(--success-color);
+}
+
+.salary-box {
+  border-left-color: var(--warning-color);
+}
+
+.summary-box h4,
+.highlights-box h4,
+.recommendation-box h4,
+.complexity-box h4,
+.next-steps-box h4,
+.salary-box h4 {
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.summary-box p,
+.salary-box p {
+  color: var(--text-light);
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.highlights-list,
+.next-steps-list {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.highlights-list li,
+.next-steps-list li {
+  color: var(--text-light);
+  margin: 8px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.highlights-list li::before,
+.next-steps-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+.next-steps-list li::before {
+  content: '→';
+}
+
+.recommendation-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.recommendation-badge {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.recommendation-badge.recommend {
+  background: #d1fae5;
+  color: var(--success-color);
+}
+
+.recommendation-badge.conditional {
+  background: #fef3c7;
+  color: var(--warning-color);
+}
+
+.recommendation-badge.do {
+  background: #fee2e2;
+  color: var(--danger-color);
+}
+
+.recommendation-reason {
+  flex: 1;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.complexity-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--light-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .recommendation-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recommendation-badge {
+    width: 100%;
+    text-align: center;
+  }
+}
