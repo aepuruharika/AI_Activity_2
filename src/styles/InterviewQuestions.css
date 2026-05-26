@@ -1,0 +1,57 @@
+.interview-questions {
+  border-left-color: var(--success-color);
+  background: #f0fdf4;
+}
+
+.interview-intro {
+  color: var(--text-light);
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.questions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.question-item {
+  background: white;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border-left: 4px solid var(--success-color);
+  display: flex;
+  gap: 15px;
+  line-height: 1.6;
+}
+
+.question-number {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.question-text {
+  color: var(--text-dark);
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .question-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .question-number {
+    width: 100%;
+    height: auto;
+    padding: 8px 0;
+  }
+}

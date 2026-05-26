@@ -1,0 +1,24 @@
+.candidate-info {
+  border-left-color: var(--primary-color);
+}
+
+.candidate-details {
+  background: var(--light-bg);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.skills-section,
+.strengths-section,
+.certifications-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.skills-section h4,
+.strengths-section h4,
+.certifications-section h4 {
+  margin-bottom: 12px;
+  color: var(--text-dark);
+}
