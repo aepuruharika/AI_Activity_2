@@ -245,16 +245,16 @@ Health check endpoint.
 
 ## 🎯 Key Features
 
-✅ **Multi-LLM Orchestration** - 3 specialized models in pipeline
-✅ **Structured JSON Output** - Standardized data extraction
-✅ **Smart Scoring** - Automatic qualification determination
-✅ **Conditional Logic** - Different outputs based on score
-✅ **Beautiful UI** - Modern React interface with animations
-✅ **Real-time Processing** - Live feedback to users
-✅ **Error Handling** - Comprehensive error messages
-✅ **Modular Code** - Separate files for each LLM
-✅ **PDF Download** - Generate professional summaries for both qualified and rejected candidates
-✅ **Professional Reports** - Formatted PDF with all analysis and recommendations
+✅ **Dual-LLM Pipeline** - Llama 3.1 for extraction & analysis, BART for summarization
+✅ **JSON-Structured Extraction** - Resume data extracted to standardized JSON format
+✅ **Intelligent Matching** - Automatic resume-to-job comparison with percentage scoring
+✅ **Dynamic Outputs** - Interview questions for qualified candidates, improvement suggestions for others
+✅ **Professional UI** - Modern React interface with smooth animations and real-time feedback
+✅ **Concurrent Processing** - Non-blocking async operations for fast response times
+✅ **Robust Error Handling** - Graceful error management with informative user feedback
+✅ **Modular Architecture** - Separate modules for extraction, analysis, and summarization
+✅ **PDF Report Generation** - Professional PDF summaries with detailed candidate analysis
+✅ **Comprehensive Logging** - Backend logging for debugging and monitoring
 
 ## 🔒 Environment Variables
 
@@ -265,14 +265,26 @@ HUGGINGFACE_API_KEY=your_huggingface_api_key_here
 LLM_MODEL_ID=meta-llama/Llama-3.1-8B-Instruct
 ```
 
-**Note:** Do NOT commit `.env` file with actual API keys. Use `.env.example` as template.
+**Configuration Details:**
+- `HUGGINGFACE_API_KEY`: Your HuggingFace API key for accessing inference endpoints
+- `LLM_MODEL_ID`: Llama 3.1 8B Instruct model for resume extraction and job matching analysis
+- **Note:** BART (`facebook/bart-large-cnn`) is used for recruiter summary generation via HuggingFace Inference API
+
+**Security:** Do NOT commit `.env` file with actual API keys. Use `.env.example` as template.
 
 ## 📝 Implementation Details
 
-### Unified LLM Configuration
-- **Use Cases 1 & 2** (Extraction & Analysis): Both use the same Llama model configured via `LLM_MODEL_ID`
-- **Use Case 3** (Summary): Uses Facebook BART (`facebook/bart-large-cnn`) via HuggingFace Inference API
-- Change `LLM_MODEL_ID` in `.env` to swap extraction and analysis models for all three steps
+### Dual-LLM Architecture
+- **LLM 1 - Llama 3.1 8B Instruct** (Extraction & Analysis): Used for resume extraction (Step 1) and resume-to-job matching (Step 2)
+  - Configured via `LLM_MODEL_ID` environment variable
+  - Returns JSON-structured data for both extraction and analysis
+  - Handles qualification scoring with configurable thresholds
+  
+- **LLM 2 - Facebook BART** (Summarization): Used for recruiter summary generation (Step 3)
+  - `facebook/bart-large-cnn` model
+  - Generates concise executive summaries from candidate profiles
+  - Provides key highlights and recommendations
+  - Accessed via HuggingFace Inference API
 
 ### API Integration
 - HuggingFace Inference API for chat completions (Llama)
