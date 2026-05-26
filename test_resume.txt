@@ -1,0 +1,29 @@
+John Doe
+john.doe@email.com
+Phone: (555) 123-4567
+
+PROFESSIONAL SUMMARY
+Experienced full-stack software engineer with 5 years of experience in Python, JavaScript, and cloud technologies.
+
+SKILLS
+- Python, JavaScript, React, FastAPI
+- AWS, Docker, Kubernetes
+- PostgreSQL, MongoDB
+- Git, CI/CD pipelines
+
+EXPERIENCE
+Senior Software Engineer | Tech Company Inc | 2021-Present
+- Led development of microservices architecture
+- Implemented CI/CD pipelines reducing deployment time by 40%
+- Mentored 3 junior developers
+
+Software Engineer | StartUp XYZ | 2019-2021
+- Built full-stack web applications using React and FastAPI
+- Optimized database queries improving performance by 25%
+
+EDUCATION
+Bachelor of Science in Computer Science | State University | 2019
+
+CERTIFICATIONS
+- AWS Solutions Architect Associate
+- Docker Certified Associate
