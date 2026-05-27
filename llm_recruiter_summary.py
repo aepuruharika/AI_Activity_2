@@ -55,21 +55,29 @@ Interview Status: {"Qualified for interview" if is_qualified else "Needs improve
 """
 
     try:
-        summary_result = client.summarization(
-            text_to_summarize,
-            model=BART_MODEL_ID,
-        )
+        try:
+            # Try to get BART summarization (may timeout)
+            summary_result = client.summarization(
+                text_to_summarize,
+                model=BART_MODEL_ID,
+                timeout=10  # 10 second timeout
+            )
 
-        summary_text = "No summary available"
+            summary_text = "No summary available"
 
-        if isinstance(summary_result, list):
-            if len(summary_result) > 0 and isinstance(summary_result[0], dict):
-                summary_text = summary_result[0].get('summary_text', 'No summary available')
-        elif isinstance(summary_result, dict):
-            if 'summary_text' in summary_result:
-                summary_text = summary_result['summary_text']
-        elif isinstance(summary_result, str):
-            summary_text = summary_result
+            if isinstance(summary_result, list):
+                if len(summary_result) > 0 and isinstance(summary_result[0], dict):
+                    summary_text = summary_result[0].get('summary_text', 'No summary available')
+            elif isinstance(summary_result, dict):
+                if 'summary_text' in summary_result:
+                    summary_text = summary_result['summary_text']
+            elif isinstance(summary_result, str):
+                summary_text = summary_result
+
+        except Exception as bart_error:
+            # BART failed or timed out - use fallback summary
+            print(f"[FALLBACK] BART summarization unavailable: {str(bart_error)}")
+            summary_text = f"Candidate match score: {match_score}%. Status: {recommendation}. {analysis.get('analysis_summary', 'Evaluation based on resume analysis.')}"
 
         return {
             "executive_summary": str(summary_text),

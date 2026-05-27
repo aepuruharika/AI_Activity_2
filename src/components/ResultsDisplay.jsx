@@ -20,7 +20,7 @@ function ResultsDisplay({ results, onReset }) {
     setDownloadError('')
 
     try {
-      const response = await fetch('http://localhost:8005/api/download-pdf', {
+      const response = await fetch('http://localhost:8006/api/download-pdf', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
